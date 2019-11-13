@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileUtils {
-    List<String> readAll(final String path) {
+    public static List<String> readAll(String path) {
         ArrayList<String> lines = new ArrayList<String>();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             while ((br.ready())) {
