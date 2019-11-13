@@ -1,5 +1,7 @@
 package PersonPackage;
 
+import java.util.Objects;
+
 public class Person {
     private int age;
     private String name;
@@ -35,5 +37,21 @@ public class Person {
         this.name = name;
     }
 
+    @Override
+    public int hashCode() {
+        final int init = 19;
+        return name.hashCode() * age + 2 * (name.hashCode()^2) * age^2;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Person otherPerson = (Person)obj;
+        return (age == otherPerson.getAge() && Objects.equals(name, otherPerson.getName()));
+    }
 }

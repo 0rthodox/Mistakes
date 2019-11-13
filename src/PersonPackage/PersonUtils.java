@@ -9,8 +9,8 @@ public class PersonUtils {
     }
 
     public static int findMaxAge(List<Person> persons) {
-        if(persons.isEmpty())
-            throw new IllegalArgumentException("At person.findMaxAge: given list is empty");
+        if(persons == null || persons.isEmpty())
+            throw new IllegalArgumentException("At person.findMaxAge: given list is invalid");
         int maxAge = 0;
         for (Person currentPerson : persons) {
             if(maxAge < currentPerson.getAge())
